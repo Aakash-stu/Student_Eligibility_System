@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Eligibility Verification System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Student Eligibility Verification System</h1>
+        <p>Using Predicate Logic</p>
+    </header>
+
+    
+<main>
+    <section class="dashboard">
+
+        <div class="welcome-panel">
+            <span class="tag">DISCRETE MATHEMATICS PROJECT</span>
+
+            <h2>Smart Student Eligibility</h2>
+
+            <p>
+                Verify student eligibility using mathematical
+                predicates and logical operators.
+            </p>
+
+            <div class="logic-panel">
+                <h3>Predicate Logic Rules</h3>
+
+                <p>P(x): CGPA ≥ 8.0</p>
+                <p>Q(x): Attendance ≥ 80%</p>
+                <p>R(x): No pending arrears</p>
+
+                <div class="formula">
+                    E(x) = P(x) ∧ Q(x) ∧ R(x)
+                </div>
+            </div>
+        </div>
+
+        <section class="eligibility-card">
+            <h2>Verify Student</h2>
+
+            <p>Enter academic details to check eligibility.</p>
+
+            <form id="eligibilityForm">
+
+                <label for="studentName">Student Name</label>
+                <input type="text" id="studentName"
+                    placeholder="Enter student name" required>
+
+                <label for="cgpa">CGPA (0 - 10)</label>
+                <input type="number" id="cgpa"
+                    placeholder="Enter CGPA" min="0" max="10"
+                    step="0.01" required>
+
+                <label for="attendance">Attendance (%)</label>
+                <input type="number" id="attendance"
+                    placeholder="Enter attendance" min="0"
+                    max="100" step="0.1" required>
+
+                <label for="arrears">Pending Arrears?</label>
+                <select id="arrears" required>
+                    <option value="">Select an option</option>
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                </select>
+
+                <button type="submit">Check Eligibility →</button>
+            </form>
+
+            <div id="result" aria-live="polite"></div>
+        </section>
+
+        <section class="stats-panel">
+            <div class="stat-card">
+                <span>Total Checked</span>
+                <h3 id="totalCount">0</h3>
+            </div>
+
+            <div class="stat-card">
+                <span>Eligible</span>
+                <h3 id="eligibleCount">0</h3>
+            </div>
+
+            <div class="stat-card">
+                <span>Not Eligible</span>
+                <h3 id="ineligibleCount">0</h3>
+            </div>
+        </section>
+
+        <section class="history-panel">
+            <h2>Recent Verification History</h2>
+<button type="button" id="exportCSV">
+    📥 Export CSV
+</button>
+            
+<div class="history-controls">
+    <input
+        type="text"
+        id="searchStudent"
+        placeholder="🔍 Search student by name..."
+    >
+
+    <select id="filterEligibility">
+        <option value="all">All Students</option>
+        <option value="eligible">Eligible Only</option>
+        <option value="ineligible">Not Eligible Only</option>
+    </select>
+</div>
+
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>CGPA</th>
+                            <th>Attendance</th>
+                            <th>Result</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="historyBody">
+                        <tr>
+                            <td colspan="4">
+                                No students checked yet.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </section>
+</main>
+
+
+    <footer>
+        <p>Student Eligibility Verification System | Discrete Mathematics Project</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
